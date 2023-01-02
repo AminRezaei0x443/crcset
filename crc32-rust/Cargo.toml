@@ -1,0 +1,10 @@
+[package]
+name = "crc32c"
+version = "0.1.0"
+authors = ["Amin Rezaei <AminRezaei0x443@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+crc32c = "0.6.3"
