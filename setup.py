@@ -1,9 +1,10 @@
-from setuptools import setup, find_packages
+import os
+import shutil
 from distutils.errors import CompileError
 from subprocess import call
+
+from setuptools import find_packages, setup
 from setuptools.command.build_py import build_py
-import shutil
-import os
 
 
 # Thanks to: https://www.ardanlabs.com/blog/2020/08/packaging-python-code.html
