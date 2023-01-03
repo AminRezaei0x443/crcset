@@ -33,7 +33,7 @@ with open('requirements.txt') as f:
 
 setup(
     name="crcset",
-    version="0.0.2",
+    version="0.0.3",
     description="",
     license="MIT",
     packages=find_packages(),
