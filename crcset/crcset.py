@@ -24,11 +24,11 @@ class CRCSet:
         return ins.exports.crc32(pointer, ln) & 0xFFFFFFFF
 
     @classmethod
-    def crc16(cls, data: bytes) -> int:
+    def crc16xmodem(cls, data: bytes) -> int:
         ins = cls._get_instance()
         pointer, ln = byte_alloc(ins.exports.memory, ins.exports.alloc, data)
         return ins.exports.crc16(pointer, ln) & 0xFFFF
 
 
 crc32c = CRCSet.crc32c
-crc16 = CRCSet.crc16
+crc16xmodem = CRCSet.crc16xmodem
