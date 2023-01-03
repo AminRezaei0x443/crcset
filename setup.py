@@ -20,16 +20,17 @@ class build_wasi_ext(build_py):
         out = call(cmd)
         os.chdir(od)
         binary_path = os.path.join(
-            os.getcwd(), "crcset-rust/target/wasm32-wasi/release/crcset.wasm"
+            os.getcwd(), "crcset-rust/target/wasm32-wasi/release/crcset.wasm",
         )
         shutil.copy(binary_path, wasi_path)
         if out != 0:
             raise CompileError("Rust WASI build failed")
+        super(build_py, self).run()
 
 
 setup(
     name="crcset",
-    version="0.0.1",
+    version="0.0.2",
     description="",
     license="MIT",
     packages=find_packages(),
@@ -40,7 +41,7 @@ setup(
     install_requires=[],
     extras_require={},
     package_data={
-        "py_crcset.wasi": ["_crcset_wasi.wasm"],
+        "crcset.wasi": ["_crcset_wasi.wasm"],
     },
     cmdclass={"build_py": build_wasi_ext},
     zip_safe=False,
