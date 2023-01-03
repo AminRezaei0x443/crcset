@@ -1,5 +1,5 @@
 fn main() {
-    println!("CRC32C - WASI");
+    println!("CRCSET - WASI");
 }
 
 #[no_mangle]
@@ -7,6 +7,15 @@ pub extern "C" fn crc32(data: *const u8, len: usize) -> u32 {
     unsafe{
         let msg = std::slice::from_raw_parts(data, len);
         let crc = crc32c::crc32c(msg);
+        crc
+    }
+}
+
+#[no_mangle]
+pub extern "C" fn crc16(data: *const u8, len: usize) -> u16 {
+    unsafe{
+        let msg = std::slice::from_raw_parts(data, len);
+        let crc = crc16::State::<crc16::XMODEM>::calculate(msg);
         crc
     }
 }

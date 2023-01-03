@@ -12,15 +12,15 @@ class build_wasi_ext(build_py):
     """Customized build command to build rust module as WASI."""
 
     def run(self):
-        wasi_path = os.path.join(os.getcwd(), "py_crc32c/wasi/_crc32_wasi.wasm")
+        wasi_path = os.path.join(os.getcwd(), "crcset/wasi/_crcset_wasi.wasm")
         od = os.getcwd()
-        td = os.path.join(os.getcwd(), "crc32-rust")
+        td = os.path.join(os.getcwd(), "crcset-rust")
         os.chdir(td)
         cmd = ["cargo", "wasi", "build", "--release"]
         out = call(cmd)
         os.chdir(od)
         binary_path = os.path.join(
-            os.getcwd(), "crc32-rust/target/wasm32-wasi/release/crc32c.wasm"
+            os.getcwd(), "crcset-rust/target/wasm32-wasi/release/crcset.wasm"
         )
         shutil.copy(binary_path, wasi_path)
         if out != 0:
@@ -28,7 +28,7 @@ class build_wasi_ext(build_py):
 
 
 setup(
-    name="py-crc32c",
+    name="crcset",
     version="0.0.1",
     description="",
     license="MIT",
@@ -36,11 +36,11 @@ setup(
     author="Amin Rezaei",
     author_email="AminRezaei0x443@gmail.com",
     keywords=[],
-    url="https://github.com/AminRezaei0x443/py-crc32c",
+    url="https://github.com/AminRezaei0x443/crcset",
     install_requires=[],
     extras_require={},
     package_data={
-        "py_crc32c.wasi": ["_crc32_wasi.wasm"],
+        "py_crcset.wasi": ["_crcset_wasi.wasm"],
     },
     cmdclass={"build_py": build_wasi_ext},
     zip_safe=False,
