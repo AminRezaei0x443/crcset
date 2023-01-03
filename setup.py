@@ -28,6 +28,9 @@ class build_wasi_ext(build_py):
         super(build_py, self).run()
 
 
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
+
 setup(
     name="crcset",
     version="0.0.2",
@@ -38,7 +41,7 @@ setup(
     author_email="AminRezaei0x443@gmail.com",
     keywords=[],
     url="https://github.com/AminRezaei0x443/crcset",
-    install_requires=[],
+    install_requires=required,
     extras_require={},
     package_data={
         "crcset.wasi": ["_crcset_wasi.wasm"],
