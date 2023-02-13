@@ -20,6 +20,8 @@ jobs:
         toolchain: stable
     - name: Setup Cargo-WASI
       run: cargo install cargo-wasi
+    - name: Setup WASM32
+      run: rustup target add wasm32-unknown-unknown 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
