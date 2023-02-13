@@ -1,2 +1,3 @@
 wasmer~=1.1.0
 wasmer_compiler_cranelift~=1.1.0
+pywasm~=1.0.7

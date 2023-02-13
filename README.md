@@ -2,7 +2,7 @@
 `CRCSet` aims to provide `crc` implementation for python.
 
 ### What's the difference with other packages?
-This package has builtin `WASI` module and there is no need to compile for each platform. Just install the package and enjoy it.
+With the integrated `WASI` and `WASM` modules, this package eliminates the hassle of platform-specific compilations. Simply install the package and start using it. The package initially utilizes the `wasmer` runtime for execution, but in the case it's not available, it provides a reliable fallback option with `pywasm`, a pure Python-based `WASM` runtime.
 
 ## Usage
 1. Install the library:
