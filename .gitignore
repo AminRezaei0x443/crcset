@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.wasm
+test_space/
 
 # Jetbrains
 .idea/
